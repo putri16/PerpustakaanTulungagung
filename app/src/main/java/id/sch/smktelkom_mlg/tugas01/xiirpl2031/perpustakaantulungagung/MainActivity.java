@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
     EditText etNama, etTahun, etLama;
+    RadioGroup rgJK;
     TextView tvHasil;
 
     @Override
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         etNama = (EditText) findViewById(R.id.editTextNama);
         etTahun = (EditText) findViewById(R.id.editTextTahun);
         etLama = (EditText) findViewById(R.id.editTextLama);
+        rgJK = (RadioGroup) findViewById(R.id.radiogroupJK);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
 
         findViewById(R.id.buttonOK).setOnClickListener(new View.OnClickListener() {
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         String nama = etNama.getText().toString();
         int tahun = Integer.parseInt(etTahun.getText().toString());
         int usia = 2016 - tahun;
+        String hasil = null;
 
         StringBuilder builder = new StringBuilder();
         builder.append("Nama Anda : ");
@@ -40,10 +45,17 @@ public class MainActivity extends AppCompatActivity {
         builder.append("Anda lahir tahun " + tahun);
         builder.append(" usia anda sekarang : ");
         builder.append(usia + "\n");
+
+        if (rgJK.getCheckedRadioButtonId() != -1) {
+            RadioButton rb = (RadioButton) findViewById(rgJK.getCheckedRadioButtonId());
+            hasil = rb.getText().toString();
+        }
+        builder.append("Jenis kelamin anda : ");
+        builder.append(hasil + "\n");
+
         int lama = Integer.parseInt(etLama.getText().toString());
         int telat = lama - 3;
         int pinjam = telat * 5000;
-
         if (pinjam <= 0) {
             builder.append("Anda mengembalikan buku tepat waktu!");
         } else {
