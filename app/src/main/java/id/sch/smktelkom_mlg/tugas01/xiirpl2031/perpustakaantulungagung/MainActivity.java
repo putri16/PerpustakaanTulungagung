@@ -93,55 +93,104 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     }
 
     private void doClick() {
+        if (isValid()) {
+            String nama = etNama.getText().toString();
+            int tahun = Integer.parseInt(etTahun.getText().toString());
+            int usia = 2016 - tahun;
+
+            StringBuilder builder = new StringBuilder();
+            builder.append("Nama Anda : ");
+            builder.append(nama + "\n");
+
+            builder.append("Wilayah Provinsi ");
+            builder.append(spP.getSelectedItem().toString());
+            builder.append(" Kota ");
+            builder.append(spK.getSelectedItem().toString() + "\n");
+
+            String hasil = null;
+            if (rgJK.getCheckedRadioButtonId() != -1) {
+                RadioButton rb = (RadioButton) findViewById(rgJK.getCheckedRadioButtonId());
+                hasil = rb.getText().toString();
+            }
+            builder.append("Jenis kelamin anda : ");
+            builder.append(hasil + "\n");
+
+            builder.append("Anda lahir tahun " + tahun);
+            builder.append(" usia anda sekarang : ");
+            builder.append(usia + " tahun\n");
+
+            String buku = "Buku yang anda pinjam : \n";
+            int startlen = buku.length();
+            if (cbP.isChecked()) buku += cbP.getText() + "\n";
+            if (cbE.isChecked()) buku += cbE.getText() + "\n";
+            if (cbH.isChecked()) buku += cbH.getText() + "\n";
+            if (cbPD.isChecked()) buku += cbPD.getText() + "\n";
+            if (cbA.isChecked()) buku += cbA.getText() + "\n";
+            if (buku.length() == startlen) buku += "Tidak ada buku yang dipilih";
+            builder.append(buku);
+
+            builder.append("Anda meminjam buku sebanyak " + hobi + " buku\n");
+
+            int lama = Integer.parseInt(etLama.getText().toString());
+            int telat = lama - 3;
+            int pinjam = telat * hobi * 5000;
+            if (telat <= 0) {
+                builder.append("Anda mengembalikan buku tepat waktu!");
+            } else {
+                builder.append("Anda Terlambat mengembalikan buku selama " + telat + " hari\n");
+                builder.append("Anda mendapat denda : " + pinjam + "\n");
+            }
+
+
+            tvHasil.setText(builder);
+        }
+    }
+
+    private boolean isValid() {
+        boolean valid = true;
+
         String nama = etNama.getText().toString();
-        int tahun = Integer.parseInt(etTahun.getText().toString());
-        int usia = 2016 - tahun;
-        String hasil = null;
+        String tahun = etTahun.getText().toString();
+        String lama = etLama.getText().toString();
 
-        StringBuilder builder = new StringBuilder();
-        builder.append("Nama Anda : ");
-        builder.append(nama + "\n");
-
-        builder.append("Wilayah Provinsi ");
-        builder.append(spP.getSelectedItem().toString());
-        builder.append(" Kota ");
-        builder.append(spK.getSelectedItem().toString() + "\n");
-
-        if (rgJK.getCheckedRadioButtonId() != -1) {
-            RadioButton rb = (RadioButton) findViewById(rgJK.getCheckedRadioButtonId());
-            hasil = rb.getText().toString();
+        if(nama.isEmpty())
+        {
+            etNama.setError("Nama Belum diisi");
+            valid = false;
         }
-        builder.append("Jenis kelamin anda : ");
-        builder.append(hasil + "\n");
-
-        builder.append("Anda lahir tahun " + tahun);
-        builder.append(" usia anda sekarang : ");
-        builder.append(usia + " tahun\n");
-
-        String buku = "Buku yang anda pinjam : \n";
-        int startlen = buku.length();
-        if (cbP.isChecked()) buku += cbP.getText() + "\n";
-        if (cbE.isChecked()) buku += cbE.getText() + "\n";
-        if (cbH.isChecked()) buku += cbH.getText() + "\n";
-        if (cbPD.isChecked()) buku += cbPD.getText() + "\n";
-        if (cbA.isChecked()) buku += cbA.getText() + "\n";
-        if (buku.length() == startlen) buku += "Tidak ada buku yang dipilih";
-        builder.append(buku);
-
-        builder.append("Anda meminjam buku sebanyak " + hobi + " buku\n");
-
-        int lama = Integer.parseInt(etLama.getText().toString());
-        int telat = lama - 3;
-        int pinjam = telat * hobi * 5000;
-        if (telat <= 0) {
-            builder.append("Anda mengembalikan buku tepat waktu!");
-        } else {
-            builder.append("Anda Terlambat mengembalikan buku selama " + telat + " hari\n");
-            builder.append("Anda mendapat denda : " + pinjam + "\n");
+        else if(nama.length()<3)
+        {
+            etNama.setError("Nama minimal 3 karakter");
+            valid = false;
         }
-
-
-        tvHasil.setText(builder);
+        else
+        {
+            etNama.setError(null);
+        }
+        if(tahun.isEmpty())
+        {
+            etTahun.setError("Tahun belum diisi");
+            valid = false;
+        }
+        else if (tahun.length()!=4)
+        {
+            etTahun.setError("format tahun bukan yyyy");
+            valid = false;
+        }
+        else
+        {
+            etTahun.setError(null);
+        }
+        if(lama.isEmpty())
+        {
+            etTahun.setError("Lama hari belum diisi");
+            valid = false;
+        }
+        else
+        {
+            etTahun.setError(null);
+        }
+        return valid;
     }
 
 
