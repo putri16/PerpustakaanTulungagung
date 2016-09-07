@@ -107,46 +107,50 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 tvHasil.setText("Anda Belum Memilih Jenis Kelamin");
             }
             else {
-                String buku = "Buku yang anda pinjam : \n";
+                String buku = "\tBuku yang dipinjam\t : \t\n";
                 int startlen = buku.length();
-                if (cbP.isChecked()) buku += cbP.getText() + "\n";
-                if (cbE.isChecked()) buku += cbE.getText() + "\n";
-                if (cbH.isChecked()) buku += cbH.getText() + "\n";
-                if (cbPD.isChecked()) buku += cbPD.getText() + "\n";
-                if (cbA.isChecked()) buku += cbA.getText() + "\n";
+                if (cbP.isChecked()) buku += "\t\t -> " +cbP.getText() + "\n";
+                if (cbE.isChecked()) buku += "\t\t -> " +cbE.getText() + "\n";
+                if (cbH.isChecked()) buku += "\t\t -> " +cbH.getText() + "\n";
+                if (cbPD.isChecked()) buku += "\t\t -> " +cbPD.getText() + "\n";
+                if (cbA.isChecked()) buku += "\t\t -> " +cbA.getText() + "\n";
                 if (buku.length() == startlen) {
                     tvHasil.setText("Tidak ada buku yang dipilih");
                 }
                 else {
                     StringBuilder builder = new StringBuilder();
-                    builder.append("Nama Anda : ");
+                    builder.append("\nFORM PENGEMBALIAN BUKU\n");
+
+                    builder.append("\tNama\t\t\t\t\t\t : \t");
                     builder.append(nama + "\n");
 
-                    builder.append("Wilayah Provinsi ");
-                    builder.append(spP.getSelectedItem().toString());
-                    builder.append(" Kota ");
+                    builder.append("\tAlamat\t\t\t\t\t : \n");
+                    builder.append("\t\tProvinsi\t\t\t\t : \t");
+                    builder.append(spP.getSelectedItem().toString() + "\n");
+                    builder.append("\t\tKota\t\t\t\t\t : \t");
                     builder.append(spK.getSelectedItem().toString() + "\n");
 
-                    builder.append("Jenis kelamin anda : ");
+                    builder.append("\tJenis kelamin\t\t\t : \t");
                     builder.append(hasil + "\n");
 
-                    builder.append("Anda lahir tahun " + tahun);
-                    builder.append(" usia anda sekarang : ");
-                    builder.append(usia + " tahun\n");
-
-                    builder.append(buku);
-
-                    builder.append("Anda meminjam buku sebanyak " + hobi + " buku\n");
+                    builder.append("\tUsia\t\t\t\t\t : \t" + usia +" tahun ");
+                    builder.append("( lahir tahun " + tahun + " )\n");
 
                     int lama = Integer.parseInt(etLama.getText().toString());
                     int telat = lama - 3;
                     int pinjam = telat * hobi * 5000;
+
+                    builder.append("\tLama peminjaman\t\t : \t" + lama +" hari \n");
+
+                    builder.append("\n" + buku + "\n");
+
                     if (telat <= 0) {
-                        builder.append("Anda mengembalikan buku tepat waktu!");
+                        builder.append("\nAnda mengembalikan buku tepat waktu!\n");
                     } else {
-                        builder.append("Anda Terlambat mengembalikan buku selama " + telat + " hari\n");
-                        builder.append("Anda mendapat denda : " + pinjam + "\n");
+                        builder.append("\nKeterlambatan\t : \t " + telat + " hari\n");
+                        builder.append("Denda\t\t\t : \t" + pinjam + " Ribu\n");
                     }
+                    builder.append("\n*Anda harus mengembalikan buku selambatnya 3 hari dari hari peminjaman, jika tidak anda akan mendapat denda 5000 Ribu per hari dalam 1 buku!.");
 
                     tvHasil.setText(builder);
                 }
