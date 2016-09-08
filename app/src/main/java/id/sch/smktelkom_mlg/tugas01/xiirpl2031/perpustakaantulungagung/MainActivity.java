@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     RadioGroup rgJK;
     CheckBox cbP, cbE, cbH, cbPD, cbA;
     Spinner spP, spK;
-    TextView tvHasil;
+    TextView tvHasil, tv2, tvh2, tvh3;
     int hobi;
     String[][]arKota= {{"Bandung", "Cirebon", "Bekasi"},
             {"Jakarta Pusat", "Jakarta Timur", "Jakarta Barat", "Jakarta Utara", "Jakarta Selatan"},
@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         spP = (Spinner) findViewById(R.id.spinnerProv);
         spK = (Spinner) findViewById(R.id.spinnerKota);
         tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        tv2 = (TextView) findViewById(R.id.textView);
+        tvh2 = (TextView) findViewById(R.id.textViewJN);
+        tvh3 = (TextView) findViewById(R.id.textViewBK);
         adapter = new KotaAdapter(this, listKota);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spK.setAdapter(adapter);
@@ -104,10 +107,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             }
             if (hasil==null)
             {
-                tvHasil.setText("Anda Belum Memilih Jenis Kelamin");
+                tvh2.setVisibility(View.VISIBLE);
+                tvh2.setText("Anda Belum Memilih Jenis Kelamin");
             }
             else {
-                String buku = "\tBuku yang dipinjam\t : \t\n";
+                tvh2.setVisibility(View.GONE);
+                String buku = "\tBuku yang dipinjam \t\n";
                 int startlen = buku.length();
                 if (cbP.isChecked()) buku += "\t\t -> " +cbP.getText() + "\n";
                 if (cbE.isChecked()) buku += "\t\t -> " +cbE.getText() + "\n";
@@ -115,16 +120,18 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 if (cbPD.isChecked()) buku += "\t\t -> " +cbPD.getText() + "\n";
                 if (cbA.isChecked()) buku += "\t\t -> " +cbA.getText() + "\n";
                 if (buku.length() == startlen) {
-                    tvHasil.setText("Tidak ada buku yang dipilih");
+                    tvh3.setVisibility(View.VISIBLE);
+                    tvh3.setText("Tidak ada buku yang dipilih");
                 }
                 else {
+                    tvh3.setVisibility(View.GONE);
                     StringBuilder builder = new StringBuilder();
-                    builder.append("\nFORM PENGEMBALIAN BUKU\n");
+                    builder.append("\nFORM PENGEMBALIAN BUKU\n\n");
 
-                    builder.append("\tNama\t\t\t\t\t\t : \t");
+                    builder.append("\tNama\t\t\t\t\t : \t");
                     builder.append(nama + "\n");
 
-                    builder.append("\tAlamat\t\t\t\t\t : \n");
+                    builder.append("\tAlamat\n");
                     builder.append("\t\tProvinsi\t\t\t\t : \t");
                     builder.append(spP.getSelectedItem().toString() + "\n");
                     builder.append("\t\tKota\t\t\t\t\t : \t");
@@ -133,14 +140,14 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                     builder.append("\tJenis kelamin\t\t\t : \t");
                     builder.append(hasil + "\n");
 
-                    builder.append("\tUsia\t\t\t\t\t : \t" + usia +" tahun ");
+                    builder.append("\tUsia\t\t\t\t\t\t : \t" + usia +" tahun ");
                     builder.append("( lahir tahun " + tahun + " )\n");
 
                     int lama = Integer.parseInt(etLama.getText().toString());
                     int telat = lama - 3;
                     int pinjam = telat * hobi * 5000;
 
-                    builder.append("\tLama peminjaman\t\t : \t" + lama +" hari \n");
+                    builder.append("\tLama peminjaman\t : \t" + lama +" hari \n");
 
                     builder.append("\n" + buku + "\n");
 
@@ -148,11 +155,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                         builder.append("\nAnda mengembalikan buku tepat waktu!\n");
                     } else {
                         builder.append("\nKeterlambatan\t : \t " + telat + " hari\n");
-                        builder.append("Denda\t\t\t : \t" + pinjam + " Ribu\n");
+                        builder.append("Denda\t\t\t\t : \t" + pinjam + " Ribu\n");
                     }
-                    builder.append("\n*Anda harus mengembalikan buku selambatnya 3 hari dari hari peminjaman, jika tidak anda akan mendapat denda 5000 Ribu per hari dalam 1 buku!.");
 
                     tvHasil.setText(builder);
+                    tv2.setText("\n*Anda harus mengembalikan buku selambatnya 3 hari dari hari peminjaman, jika tidak anda akan mendapat denda 5000 Ribu per hari dalam 1 buku!.");
+
                 }
             }
 

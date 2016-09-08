@@ -28,26 +28,32 @@
             android:layout_height="wrap_content"
             android:text="\nFORM PENGEMBALIAN BUKU\t"
             android:gravity="center_horizontal"
-            style="@style/Base.TextAppearance.AppCompat.Large.Inverse"
+            style="@style/Base.TextAppearance.AppCompat.Large"
             android:textColor="@color/colorPrimaryDark" />
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama"
+            android:id="@+id/textView4"
+            style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+            android:textColor="@color/colorPrimaryDark"/>
+
             <EditText
                 android:hint="\nNama"
                 android:id="@+id/editTextNama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"/>
-        </android.support.design.widget.TextInputLayout>
+                android:textColor="@color/colorPrimaryDark" />
+
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryDark"
-            android:text="Alamat" />
+            android:text="\nAlamat"
+            style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse" />
 
         <Spinner
             android:id="@+id/spinnerProv"
@@ -59,38 +65,53 @@
             android:id="@+id/spinnerKota"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
+            android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jenis Kelamin"
-            android:textColor="@color/colorPrimaryDark" />
+            android:text="\nJenis Kelamin"
+            android:textColor="@color/colorPrimaryDark"
+            style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse" />
 
         <RadioGroup
             android:id="@+id/radiogroupJK"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark">
 
             <RadioButton
                 android:id="@+id/radioButtonL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Laki-Laki" />
+                android:text="Laki-Laki"
+                android:textColor="@color/colorPrimaryDark"/>
 
             <RadioButton
                 android:id="@+id/radioButtonP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Perempuan" />
+                android:text="Perempuan"
+                android:textColor="@color/colorPrimaryDark"/>
         </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Anda Belum Memilih Jenis Kelamin"
+                android:id="@+id/textViewJN"
+                android:textColor="@color/colorAccent"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="\nTahun Lahir"
+                android:id="@+id/textView6"
+                style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+                android:textColor="@color/colorPrimaryDark"/>
+
             <EditText
                 android:hint="Tahun Lahir"
                 android:id="@+id/editTextTahun"
@@ -98,61 +119,75 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"/>
 
-        </android.support.design.widget.TextInputLayout>
-
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buku yang Dipinjam"
-            android:textColor="@color/colorPrimaryDark" />
+            android:text="\nBuku yang Dipinjam"
+            android:textColor="@color/colorPrimaryDark"
+            style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse" />
 
         <CheckBox
             android:id="@+id/checkBoxP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Politik" />
+            android:text="Politik"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBoxE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Ekonomi" />
+            android:text="Ekonomi"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBoxH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Hukum" />
+            android:text="Hukum"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBoxPD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Pendidikan" />
+            android:text="Pendidikan"
+            android:textColor="@color/colorPrimaryDark"/>
 
         <CheckBox
             android:id="@+id/checkBoxA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Agama" />
+            android:text="Agama"
+            android:textColor="@color/colorPrimaryDark"/>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="H3"
+            android:id="@+id/textViewBK"
+            android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\nLama Pinjam"
+            android:id="@+id/textView7"
+            style="@style/Base.TextAppearance.AppCompat.Subhead.Inverse"
+            android:textColor="@color/colorPrimaryDark"/>
+
             <EditText
                 android:hint="Lama Pinjam"
                 android:id="@+id/editTextLama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"/>
-
-        </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/buttonOK"
@@ -167,7 +202,17 @@
             android:id="@+id/textViewHasil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hasil" />
+            tools:text="Hasil"
+            android:textColor="@color/colorPrimaryDark"
+            style="@style/Base.TextAppearance.AppCompat.Subhead" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="New Text"
+            android:id="@+id/textView"
+            android:textColor="@color/colorAccent"
+            style="@style/Base.TextAppearance.AppCompat.Subhead" />
 
     </LinearLayout>
 </ScrollView>
