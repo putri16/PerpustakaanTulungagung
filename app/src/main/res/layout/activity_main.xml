@@ -40,11 +40,10 @@
             android:textColor="@color/colorPrimaryDark"/>
 
             <EditText
-                android:hint="\nNama"
+                android:hint="Nama"
                 android:id="@+id/editTextNama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark" />
+                android:layout_height="wrap_content" />
 
 
         <TextView
@@ -64,8 +63,7 @@
         <Spinner
             android:id="@+id/spinnerKota"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView3"
@@ -78,25 +76,23 @@
         <RadioGroup
             android:id="@+id/radiogroupJK"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorPrimaryDark">
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/radioButtonL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Laki-Laki"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:text="Laki-Laki" />
 
             <RadioButton
                 android:id="@+id/radioButtonP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="Perempuan"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:text="Perempuan" />
         </RadioGroup>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,8 +112,7 @@
                 android:hint="Tahun Lahir"
                 android:id="@+id/editTextTahun"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textView5"
@@ -132,40 +127,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Politik"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="Politik" />
 
         <CheckBox
             android:id="@+id/checkBoxE"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Ekonomi"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="Ekonomi" />
 
         <CheckBox
             android:id="@+id/checkBoxH"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Hukum"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="Hukum" />
 
         <CheckBox
             android:id="@+id/checkBoxPD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Pendidikan"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="Pendidikan" />
 
         <CheckBox
             android:id="@+id/checkBoxA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="Agama"
-            android:textColor="@color/colorPrimaryDark"/>
+            android:text="Agama" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -186,8 +176,7 @@
                 android:hint="Lama Pinjam"
                 android:id="@+id/editTextLama"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"/>
+                android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/buttonOK"
